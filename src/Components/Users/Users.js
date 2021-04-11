@@ -32,7 +32,7 @@ const User = () => {
   return (
     <div className = {classes.spacing}>
       <Card className = {classes.root}  >
-        <CardContent className={classes.content}>
+        <CardContent className= 'CardContent'>
         <ul className = 'dashed'>
           <li>Name: {user.name}</li>
           <li><AccountCircleIcon/>username: {user.username}</li>
@@ -63,21 +63,15 @@ const useStyles = makeStyles({
   root: {
     width: 300,
     backgroundColor: '#9A9DB7',
-    padding: '6% 8%',
   },
   spacing: {
-    padding: '6% 8%',
+    padding: '6% 6%',
     alignItems: 'center',
     justifyContent: 'center',
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'row',
   },
-  content: {
-    justifyContent: 'center',
-    display: 'flex',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-  },
+ 
  
 });
