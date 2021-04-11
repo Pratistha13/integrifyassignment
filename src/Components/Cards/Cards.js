@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, CardActions, Avatar, Button, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import './Cards.css';
 
 
 const Cards = (props) => {  
@@ -11,7 +12,7 @@ const classes = useStyles();
   
   return (
     <Card className={classes.root} >
-      <CardContent>
+      <CardContent className={classes.content}>
         <div>
             <Avatar className={classes.avatar}>{name.charAt(0)}</Avatar>
         </div>
@@ -28,16 +29,14 @@ const classes = useStyles();
             <a href={`http://${website}`}>{`http://${website}`}</a>
           </Typography>
         </div>
-      </CardContent>
-      <Link to={`/user/${id}`}>
-      <CardActions className={classes.root}>
+      <CardActions>
           <Link to={`/users/${id}`}>
-            <Button variant="contained" color="primary">
+            <Button className={classes.button} variant="contained">
               More Details
             </Button>
           </Link>
         </CardActions>
-      </Link>
+      </CardContent>
     </Card>
   );
 }
@@ -46,10 +45,7 @@ export default Cards;
 
 const useStyles = makeStyles({
     root: {
-      minWidth: 275,
-    },
-    title: {
-      fontSize: 14,
+      minWidth: 270,
     },
     pos: {
       marginBottom: 12,
@@ -57,5 +53,16 @@ const useStyles = makeStyles({
     avatar: {
         height: '7rem',
         width: '7rem',
+        backgroundColor : '#61C1D1',
       },
+      button: {
+        backgroundColor: '#619CD1',
+        color: 'black',
+      },
+      content: {
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }
   });

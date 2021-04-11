@@ -3,6 +3,14 @@ import { useParams } from 'react-router-dom';
 import { Card, CardContent } from '@material-ui/core';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
+import EmailIcon from '@material-ui/icons/Email';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
+import PhoneIcon from '@material-ui/icons/Phone';
+import LanguageIcon from '@material-ui/icons/Language';
+import BusinessIcon from '@material-ui/icons/Business';
+
+import './Users.css';
 
 const User = () => {
   const { id } = useParams();
@@ -24,15 +32,15 @@ const User = () => {
     <div className = {classes.spacing}>
       <Card className = {classes.root}>
         <CardContent>
-        <ul >
-          <li>name: {user.name}</li>
-          <li>username: {user.username}</li>
-          <li>email: {user.email}</li>
-          <li>phone: {user.phone}</li>
-          <li>website: {user.website}</li>
+        <ul className = 'dashed'>
+          <li>Name: {user.name}</li>
+          <li><AccountCircleIcon/>username: {user.username}</li>
+          <li><EmailIcon/>email: {user.email} </li>
+          <li><PhoneIcon/>phone: {user.phone} </li>
+          <li><LanguageIcon/>website: {user.website}</li>
 
-          {user.company && <li>company: {user.company.name}</li>}
-          <li>address: </li>
+          {user.company && <li><BusinessIcon />company: {user.company.name} </li>}
+          <li> <HomeIcon/>address: </li>
         </ul>
         {user.address && (
           <ul>
@@ -53,10 +61,11 @@ export default User;
 const useStyles = makeStyles({
   root: {
     width: 300,
+    backgroundColor: '#9A9DB7',
   },
   spacing: {
     marginLeft: '40%', 
     paddingTop: '10%'
+  },
 
-  }
 });
