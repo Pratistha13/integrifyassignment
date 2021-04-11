@@ -15,7 +15,7 @@ const classes = useStyles();
         <div>
             <Avatar className={classes.avatar}>{name.charAt(0)}</Avatar>
         </div>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography style={{ fontWeight: 600 }}>
         {name}
           </Typography>
         <div>
