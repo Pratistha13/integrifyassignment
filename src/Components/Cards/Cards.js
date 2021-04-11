@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, CardActions, Avatar, Button, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import './Cards.css';
 
 
 const Cards = (props) => {  
@@ -45,7 +44,10 @@ export default Cards;
 
 const useStyles = makeStyles({
     root: {
-      minWidth: 270,
+      width: '15.68rem',
+      padding: '3%',
+      margin: '1rem',
+      height: 'auto',
     },
     pos: {
       marginBottom: 12,

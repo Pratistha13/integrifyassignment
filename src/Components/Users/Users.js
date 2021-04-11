@@ -15,6 +15,7 @@ import './Users.css';
 const User = () => {
   const { id } = useParams();
   const [user, setUser] = useState({});
+  
   const classes = useStyles();
 
 
@@ -30,8 +31,8 @@ const User = () => {
 
   return (
     <div className = {classes.spacing}>
-      <Card className = {classes.root}>
-        <CardContent>
+      <Card className = {classes.root}  >
+        <CardContent className={classes.content}>
         <ul className = 'dashed'>
           <li>Name: {user.name}</li>
           <li><AccountCircleIcon/>username: {user.username}</li>
@@ -40,7 +41,7 @@ const User = () => {
           <li><LanguageIcon/>website: {user.website}</li>
 
           {user.company && <li><BusinessIcon />company: {user.company.name} </li>}
-          <li> <HomeIcon/>address: </li>
+          <li><HomeIcon/>address:  </li>
         </ul>
         {user.address && (
           <ul>
@@ -62,10 +63,16 @@ const useStyles = makeStyles({
   root: {
     width: 300,
     backgroundColor: '#9A9DB7',
+    padding: '6% 8%',
   },
   spacing: {
-    marginLeft: '40%', 
-    paddingTop: '10%'
+    width: '25%',
+    margin: '4% 40%',
+    padding: '2% 0',
+    lineHeight: 2,
   },
-
+  content: {
+      margin: '1%',
+  },
+ 
 });
