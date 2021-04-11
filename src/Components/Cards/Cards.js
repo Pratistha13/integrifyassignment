@@ -9,7 +9,7 @@ const {name, username,website, id} = props;
   
 const classes = useStyles();  
   
-  // template for user details
+  // card to be used for user details in HomePage
   return (
     <Card className={classes.root} >
       <CardContent className={classes.content}>
