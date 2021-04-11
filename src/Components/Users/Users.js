@@ -65,7 +65,7 @@ const useStyles = makeStyles({
     backgroundColor: '#9A9DB7',
   },
   spacing: {
-    padding: '6% 6%',
+    padding: '8% 6%',
     alignItems: 'center',
     justifyContent: 'center',
     display: 'flex',
