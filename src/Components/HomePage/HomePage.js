@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 const HomePage = () => {
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState([]); //defining the state of the user
 
     const classes = useStyles();
     
@@ -20,18 +20,19 @@ const HomePage = () => {
         setUsers(result.data);
     };
 
+    // returns user details in the form of cards
     return (
         <div className = {classes.spacing}>    
         <Grid container
         spacing={3}
         direction="row"
         >     
-    
+          
           {users.map((item) => (
             <Grid item xs={12} sm={6} md={4} key={users.indexOf(item)}>
               <Cards key={item.id} id={item.id} name={item.name} username={item.username} website={item.website} />
               </Grid>
-            ))}
+            ))} 
             
     
         </Grid>

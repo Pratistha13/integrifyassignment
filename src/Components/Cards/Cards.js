@@ -9,9 +9,11 @@ const {name, username,website, id} = props;
   
 const classes = useStyles();  
   
+  // template for user details
   return (
     <Card className={classes.root} >
       <CardContent className={classes.content}>
+        {/* first character of the name inside the Avatar */}
         <div>
             <Avatar className={classes.avatar}>{name.charAt(0)}</Avatar>
         </div>
@@ -28,6 +30,7 @@ const classes = useStyles();
             <a href={`http://${website}`}>{`http://${website}`}</a>
           </Typography>
         </div>
+        {/* links the button to user details according to their id */}
       <CardActions>
           <Link to={`/users/${id}`}>
             <Button className={classes.button} variant="contained">

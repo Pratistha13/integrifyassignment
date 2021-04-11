@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Card, CardContent } from '@material-ui/core';
+import { Card, CardContent, CardActions, Button } from '@material-ui/core';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom'
 import EmailIcon from '@material-ui/icons/Email';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
@@ -12,13 +13,16 @@ import BusinessIcon from '@material-ui/icons/Business';
 
 import './Users.css';
 
-const User = () => {
+const Users = () => {
+  // Inside the Users function, we invoked a useParams() hook that returns an object with key/value pairs where the key is id
   const { id } = useParams();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({}); 
+
+  const history = useHistory();
   
   const classes = useStyles();
 
-
+  // fetches user details according to their id 
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
@@ -34,7 +38,7 @@ const User = () => {
       <Card className = {classes.root}  >
         <CardContent className= 'CardContent'>
         <ul className = 'dashed'>
-          <li>Name: {user.name}</li>
+          <li><b>Name: {user.name}</b></li>
           <li><AccountCircleIcon/>username: {user.username}</li>
           <li><EmailIcon/>email: {user.email} </li>
           <li><PhoneIcon/>phone: {user.phone} </li>
@@ -51,13 +55,23 @@ const User = () => {
             <li>zipcode: {user.address.zipcode}</li>
           </ul>
         )}
+        <CardActions className={classes.button}>
+        <Button className={classes.button}
+          onClick={() => {
+            history.push('/');
+          }}
+          variant="contained"
+        >
+          CLOSE
+        </Button>
+        </CardActions>
         </CardContent>
         </Card>
         </div>
   ) 
 };
 
-export default User;
+export default Users;
 
 const useStyles = makeStyles({
   root: {
@@ -72,6 +86,13 @@ const useStyles = makeStyles({
     flexWrap: 'wrap',
     flexDirection: 'row',
   },
- 
+  button: {
+    backgroundColor: 'black',
+    color: 'white',
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',  
+  },
+  
  
 });
