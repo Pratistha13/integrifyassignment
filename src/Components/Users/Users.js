@@ -66,13 +66,18 @@ const useStyles = makeStyles({
     padding: '6% 8%',
   },
   spacing: {
-    width: '25%',
-    margin: '4% 40%',
-    padding: '2% 0',
-    lineHeight: 2,
+    padding: '6% 8%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
   },
   content: {
-      margin: '1%',
+    justifyContent: 'center',
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
   },
  
 });
